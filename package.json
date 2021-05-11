@@ -47,7 +47,9 @@
   "scripts": {
     "pretest": "eslint lib test",
     "test": "mocha 'test/**/*.tests.js'",
-    "prepublish": "make mammoth.browser.min.js"
+    "prepublish": "make mammoth.browser.min.js",
+    "dev": "node_modules/.bin/browserify.cmd lib/index.js --standalone mammoth -p browserify-prepend-licenses > mammoth.browser.js",
+    "build": "node_modules/.bin/uglifyjs.cmd mammoth.browser.js -c > mammoth.browser.min.js"
   },
   "license": "BSD-2-Clause"
 }
